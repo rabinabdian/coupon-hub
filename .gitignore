@@ -1,0 +1,98 @@
+# -------------------------
+# Node.js / TypeScript
+# -------------------------
+node_modules/
+dist/
+build/
+coverage/
+lib/
+tmp/
+temp/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+
+# -------------------------
+# NestJS / Angular
+# -------------------------
+# Angular build output
+frontend/dist/
+frontend/.angular/cache/
+.angular/
+
+# NestJS build output
+backend/dist/
+backend/.tsbuildinfo
+
+# -------------------------
+# Environment / Secrets
+# -------------------------
+.env
+.env.local
+.env.*.local
+*.env
+*.local
+*.secret
+/secrets/
+
+# -------------------------
+# Database
+# -------------------------
+*.sqlite
+*.db
+*.db-journal
+*.sql
+*.dump
+*.bak
+*.seed
+
+# -------------------------
+# OS / IDE files
+# -------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# VSCode / JetBrains
+.vscode/
+.vscode-test/
+.idea/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# -------------------------
+# PowerShell / Scripts
+# -------------------------
+*.ps1~
+*.ps1.tmp
+*.ps1.bak
+
+# -------------------------
+# Other
+# -------------------------
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ignore generated docs
+docs/
+*.pdf
+*.docx
+
+# ignore uploads
+uploads/
