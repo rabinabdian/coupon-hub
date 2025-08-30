@@ -1,0 +1,14 @@
+﻿{
+  "title": "Free shipping on sneakers",
+  "description": "משלוח חינם בקניה מעל 199",
+  "code": "FREESHIP",
+  "url": "https://example.com/sneakers?utm_source=test",
+  "price": 199.9,
+  "currency": "ILS",
+  "country": "IL",
+  "merchantName": "SneakerTown",
+  "merchantSlug": "sneaker-town",
+  "categorySlug": "shoes",
+  "sourceKey": "rss:example",
+  "sourceKind": "RSS"
+}
