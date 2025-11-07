@@ -1,16 +1,23 @@
-# Coupon Hub MCP Server
+# Coupon Hub API
 
-A Model Context Protocol (MCP) server that provides access to a coupon database. This server can be connected to ChatGPT to enable coupon search, management, and retrieval functionality.
+A dual-mode API server for accessing a coupon database:
+- **MCP Server**: Model Context Protocol for ChatGPT Desktop and Claude Desktop
+- **HTTP REST API**: Web API for ChatGPT Web and other integrations
 
 ## Features
 
-The MCP server provides the following tools:
+The API provides access to:
 
-- **search_coupons**: Search for coupons by merchant, category, or keyword
-- **get_coupon_details**: Get detailed information about a specific coupon
-- **list_merchants**: List all available merchants
-- **list_categories**: List all available coupon categories
-- **add_coupon**: Add a new coupon to the database
+- **Search Coupons**: Search for coupons by merchant, category, or keyword
+- **Get Coupon Details**: Get detailed information about a specific coupon
+- **List Merchants**: List all available merchants
+- **List Categories**: List all available coupon categories
+- **Add Coupon**: Add a new coupon to the database
+
+## Choose Your Integration
+
+- **ChatGPT Desktop / Claude Desktop**: Use the MCP stdio server
+- **ChatGPT Web (chat.openai.com)**: Use the HTTP REST API ([Setup Guide](CHATGPT_SETUP.md))
 
 ## Setup
 
@@ -49,13 +56,60 @@ docker-compose up -d
 psql -h localhost -U postgres -d coupon_hub -f schema.sql
 ```
 
-### 4. Build the Server
+### 4. Configure API Settings (for HTTP server)
+
+Set your API key and port in `.env`:
+```
+PORT=3000
+API_KEY=your_secret_api_key_here
+```
+
+### 5. Build the Server
 
 ```bash
 npm run build
 ```
 
+## Running the Server
+
+### Option 1: HTTP REST API (for ChatGPT Web)
+
+```bash
+# Development mode
+npm run dev:http
+
+# Production mode
+npm run start:http
+```
+
+The server will start at `http://localhost:3000` with:
+- API Documentation: `http://localhost:3000/docs`
+- OpenAPI Spec: `http://localhost:3000/openapi.json`
+
+**For ChatGPT Web setup**, see the detailed [ChatGPT Setup Guide](CHATGPT_SETUP.md)
+
+### Option 2: MCP Stdio Server (for ChatGPT Desktop)
+
+```bash
+# Development mode
+npm run dev:mcp
+
+# Production mode
+npm run start:mcp
+```
+
 ## Connecting to ChatGPT
+
+### For ChatGPT Web (Recommended)
+
+See the comprehensive [ChatGPT Web Setup Guide](CHATGPT_SETUP.md) for detailed instructions.
+
+**Quick summary:**
+1. Deploy the HTTP server to a public URL (use ngrok for testing)
+2. Create a Custom GPT at chat.openai.com
+3. Import the OpenAPI spec from `https://your-url.com/openapi.json`
+4. Configure API key authentication
+5. Test and publish your GPT
 
 ### For ChatGPT Desktop App (Local Development)
 
