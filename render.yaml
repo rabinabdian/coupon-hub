@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: coupon-hub-api
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:http
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: NODE_ENV
+        value: production
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: 5432
+      - key: DB_USER
+        sync: false
+      - key: DB_PASS
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: API_KEY
+        generateValue: true
+
+databases:
+  - name: coupon-hub-db
+    plan: free
+    databaseName: coupon_hub
+    user: postgres

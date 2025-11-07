@@ -1,0 +1,22 @@
+# fly.toml app configuration file generated for coupon-hub on 2025-11-07
+
+app = "coupon-hub-mcp"
+primary_region = "iad"
+
+[build]
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
+
+[env]
+  PORT = "3000"
